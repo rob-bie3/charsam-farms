@@ -1,39 +1,59 @@
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import ProductCard from '../components/ProductCard';
 import teamImage from '../assets/images/img3.jpg'; 
-import logo from '../assets/images/img3.jpg';
+import mush1 from '../assets/images/mush1.jpg';
+import mush2 from '../assets/images/mush2.jpg';
+import snail1 from '../assets/images/snail1.jpg';
+import { useEffect, useState } from 'react';
+import img1 from '../assets/images/img1.jpg';
+import img2 from '../assets/images/img2.jpg';
+import farmer from '../assets/images/farmer.jpg';
 
 const featuredProducts = [
   {
-    image: '/assets/fresh-mushroom.jpg',
+    image: img1,
     title: 'Fresh Oyster Mushrooms',
     description: 'Locally grown, organic mushrooms delivered fresh to your doorstep.',
   },
   {
-    image: '/assets/dried-mushroom.jpg',
+    image: img2,
     title: 'Dried & Packaged Mushrooms',
     description: 'Long-lasting, flavor-packed mushrooms perfect for any dish.',
   },
   {
-    image: '/assets/giant-snails.jpg',
+    image: snail1,
     title: 'Giant African Snails',
     description: 'Nutritious and protein-rich delicacy, ethically farmed.',
   },
 ];
 
+const heroImages = [mush1, mush2, snail1];
+
+
 const Home = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImageIndex((prevIndex) =>
+        prevIndex === heroImages.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 10000); // every 5 seconds
+
+    return () => clearInterval(timer);
+  }, []);
   return (
     <div className="space-y-16">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-green-100 to-white py-20">
+     <section className="bg-gradient-to-br from-green-100 to-white py-20">
         <div className="container mx-auto flex flex-col md:flex-row items-center px-6">
+          {/* Text Section */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             className="flex-1 text-center md:text-left"
           >
-            <img src={logo} alt="Logo" className="w-20 h-20 mx-auto md:mx-0 mb-4" />
             <h1 className="text-4xl md:text-5xl font-bold text-green-800 mb-4">
               Sustainable Farming for a Healthier Future
             </h1>
@@ -49,14 +69,22 @@ const Home = () => {
               </button>
             </div>
           </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="flex-1 mt-10 md:mt-0"
-          >
-            <img src="/assets/farm-showcase.jpg" alt="Farm Showcase" className="rounded-xl shadow-lg" />
-          </motion.div>
+
+          {/* Image Section with Framer Motion Carousel */}
+          <div className="flex-1 mt-10 md:mt-0 relative h-[300px] md:h-[400px] w-full rounded-xl overflow-hidden shadow-lg">
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={currentImageIndex}
+                src={heroImages[currentImageIndex]}
+                alt="Farm Showcase"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1 }}
+                className="w-full h-full object-cover absolute top-0 left-0"
+              />
+            </AnimatePresence>
+          </div>
         </div>
       </section>
 
@@ -105,9 +133,9 @@ const Home = () => {
           <h2 className="text-3xl font-bold text-green-800 mb-6">Meet the Founder</h2>
           <div className="flex flex-col md:flex-row items-center justify-center gap-6">
             <img
-              src={teamImage}
+              src={farmer}
               alt="Founder"
-              className="w-40 h-40 rounded-full object-cover shadow-md"
+              className="w-80 h-80 rounded-full object-cover shadow-md"
             />
             <p className="max-w-xl text-gray-700 text-lg">
               Our founder is a passionate agro-entrepreneur with years of experience in mushroom and snail farming.
