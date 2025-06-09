@@ -8,6 +8,8 @@ import { useEffect, useState } from 'react';
 import img1 from '../assets/images/img1.jpg';
 import img2 from '../assets/images/img2.jpg';
 import farmer from '../assets/images/farmer.jpg';
+import mushvid from '../assets/videos/mushvid.mp4';
+import { Link } from 'react-router-dom';
 
 const featuredProducts = [
   {
@@ -24,6 +26,21 @@ const featuredProducts = [
     image: snail1,
     title: 'Giant African Snails',
     description: 'Nutritious and protein-rich delicacy, ethically farmed.',
+  },
+];
+
+const testimonials = [
+  {
+    name: "Ama Boateng",
+    comment: "CharsamFarms changed the way I view food. Their mushrooms are the freshest I've ever had!",
+  },
+  {
+    name: "Kwesi Appiah",
+    comment: "Excellent training and great customer service. I’m starting my own snail farm thanks to them!",
+  },
+  {
+    name: "Nana Efua",
+    comment: "Their eco-conscious approach is admirable. I love supporting such a purpose-driven business.",
   },
 ];
 
@@ -61,12 +78,16 @@ const Home = () => {
               Providing fresh mushrooms, snails, and agricultural consultancy to nourish people and the planet.
             </p>
             <div className="space-x-4">
+              <Link to='/products'>
               <button className="bg-green-700 text-white px-6 py-3 rounded-xl hover:bg-green-800 transition-all">
                 Shop Now
               </button>
+              </Link>
+             <Link to='/about'>
               <button className="border border-green-700 text-green-700 px-6 py-3 rounded-xl hover:bg-green-100">
                 Learn More
               </button>
+             </Link>
             </div>
           </motion.div>
 
@@ -135,7 +156,7 @@ const Home = () => {
             <img
               src={farmer}
               alt="Founder"
-              className="w-80 h-80 rounded-full object-cover shadow-md"
+              className="w-96 h-96 rounded-full object-cover shadow-md"
             />
             <p className="max-w-xl text-gray-700 text-lg">
               Our founder is a passionate agro-entrepreneur with years of experience in mushroom and snail farming.
@@ -147,19 +168,55 @@ const Home = () => {
       </section>
 
       {/* CTA */}
-      <section className="bg-green-700 text-white py-16 text-center">
+     <section className="relative h-[450px] md:h-[500px] overflow-hidden mb-20">
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+        src= {mushvid} // <-- Replace with your actual video path
+      ></video>
+
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-green-900 bg-opacity-60 flex items-center justify-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
+          className="text-center text-white px-4"
         >
-          <h2 className="text-3xl font-bold mb-4">Ready to experience fresh, sustainable farming?</h2>
-          <button className="bg-white text-green-700 px-8 py-4 rounded-xl font-semibold mt-4 hover:bg-green-100">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Ready to experience fresh, sustainable farming?
+          </h2>
+          <button className="bg-white text-green-700 px-8 py-4 rounded-xl font-semibold mt-4 hover:bg-green-100 transition">
             Visit Our Shop
           </button>
         </motion.div>
-      </section>
+      </div>
+    </section>
+
+<section id="testimonials" className="bg-gray-100 py-20 px-6 text-center">
+      <h2 className="text-3xl md:text-4xl font-bold mb-12 text-green-900">What Our Customers Say</h2>
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        {testimonials.map((t, index) => (
+          <motion.div
+            key={index}
+            className="bg-white p-6 rounded-lg shadow-md"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-gray-700 italic mb-4">“{t.comment}”</p>
+            <h4 className="font-semibold text-green-800">{t.name}</h4>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+
     </div>
   );
 }

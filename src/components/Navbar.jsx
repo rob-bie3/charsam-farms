@@ -18,6 +18,7 @@ const Navbar = () => {
     <nav className="bg-green-800 text-white p-4 shadow-md sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo and Title */}
+        <Link to='/'>
         <div className="flex items-center space-x-2">
           <img
             src={logo}
@@ -26,6 +27,7 @@ const Navbar = () => {
           />
           <h1 className="text-xl font-bold tracking-wide">CharsamFarms</h1>
         </div>
+        </Link>
 
         {/* Desktop Links */}
         <div className="hidden md:flex space-x-6 text-sm font-medium">
