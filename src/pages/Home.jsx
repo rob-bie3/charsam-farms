@@ -191,9 +191,11 @@ const Home = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Ready to experience fresh, sustainable farming?
           </h2>
+         <Link to='/products'>
           <button className="bg-white text-green-700 px-8 py-4 rounded-xl font-semibold mt-4 hover:bg-green-100 transition">
             Visit Our Shop
           </button>
+         </Link>
         </motion.div>
       </div>
     </section>
