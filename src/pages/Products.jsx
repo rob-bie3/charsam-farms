@@ -2,6 +2,9 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import ProductCard from '../components/ProductCard';
 import PaystackPop from '@paystack/inline-js'; // <-- paystack inline sdk
+import mush1 from '../assets/images/mush1.jpg';
+import mush2 from '../assets/images/mush2.jpg';
+import snail1 from '../assets/images/snail1.jpg';
 
 const productsData = [
   {
@@ -9,7 +12,7 @@ const productsData = [
     category: 'Fresh Mushrooms (Oyster)',
     title: 'Fresh Oyster Mushrooms - 500g',
     description: 'Organically grown oyster mushrooms, fresh and ready to cook.',
-    image: '/assets/fresh-mushroom.jpg',
+    image: mush1,
     price: 25,
   },
   {
@@ -17,7 +20,7 @@ const productsData = [
     category: 'Dried and Packaged Mushrooms',
     title: 'Dried Oyster Mushrooms - 100g',
     description: 'Flavor-packed dried mushrooms, perfect for soups and stews.',
-    image: '/assets/dried-mushroom.jpg',
+    image: mush2,
     price: 30,
   },
   {
@@ -25,7 +28,7 @@ const productsData = [
     category: 'Fresh Giant African Snails',
     title: 'Fresh Giant African Snails - 1kg',
     description: 'Nutritious and sustainably farmed snails.',
-    image: '/assets/giant-snails.jpg',
+    image: snail1,
     price: 40,
   },
 ];
