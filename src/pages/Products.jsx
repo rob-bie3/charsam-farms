@@ -1,20 +1,7 @@
-// import React from 'react'
-
-// const Products = () => {
-//   return (
-//     <div className="p-8">Products Page</div>
-//   )
-// }
-
-// export default Products;
-
-
-
-
-// src/pages/Products.jsx
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import ProductCard from '../components/ProductCard';
+import PaystackPop from '@paystack/inline-js'; // <-- paystack inline sdk
 
 const productsData = [
   {
@@ -23,7 +10,7 @@ const productsData = [
     title: 'Fresh Oyster Mushrooms - 500g',
     description: 'Organically grown oyster mushrooms, fresh and ready to cook.',
     image: '/assets/fresh-mushroom.jpg',
-    price: '₵25',
+    price: 25,
   },
   {
     id: 2,
@@ -31,7 +18,7 @@ const productsData = [
     title: 'Dried Oyster Mushrooms - 100g',
     description: 'Flavor-packed dried mushrooms, perfect for soups and stews.',
     image: '/assets/dried-mushroom.jpg',
-    price: '₵30',
+    price: 30,
   },
   {
     id: 3,
@@ -39,15 +26,7 @@ const productsData = [
     title: 'Fresh Giant African Snails - 1kg',
     description: 'Nutritious and sustainably farmed snails.',
     image: '/assets/giant-snails.jpg',
-    price: '₵40',
-  },
-  {
-    id: 4,
-    category: 'Snail Slime (Coming soon)',
-    title: 'Snail Slime Extract (Coming Soon)',
-    description: 'High-quality snail slime for cosmetic and pharmaceutical use.',
-    image: '/assets/snail-slime.jpg',
-    price: '₵TBD',
+    price: 40,
   },
 ];
 
@@ -56,16 +35,39 @@ const categories = [
   'Fresh Mushrooms (Oyster)',
   'Dried and Packaged Mushrooms',
   'Fresh Giant African Snails',
-  'Snail Slime (Coming soon)',
 ];
 
-const Products =() => {
+const Products = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [cart, setCart] = useState([]);
 
   const filteredProducts =
     selectedCategory === 'All'
       ? productsData
       : productsData.filter((p) => p.category === selectedCategory);
+
+  const addToCart = (product) => {
+    setCart([...cart, product]);
+  };
+
+  const handleCheckout = () => {
+    const paystack = new PaystackPop();
+    const totalAmount = cart.reduce((sum, item) => sum + item.price, 0) * 100; // paystack uses kobo
+
+    paystack.newTransaction({
+      key: 'YOUR_PAYSTACK_PUBLIC_KEY',
+      amount: totalAmount,
+      email: 'customer@example.com', // You can make a form to capture email
+      currency: 'GHS',
+      onSuccess: (transaction) => {
+        alert(`Payment Complete! Reference: ${transaction.reference}`);
+        setCart([]); // Clear cart after payment
+      },
+      onCancel: () => {
+        alert('Payment Cancelled');
+      },
+    });
+  };
 
   return (
     <div className="container mx-auto px-6 py-16">
@@ -109,15 +111,42 @@ const Products =() => {
             />
             <h3 className="text-xl font-semibold text-green-800 mb-2">{product.title}</h3>
             <p className="text-gray-600 mb-2">{product.description}</p>
-            <p className="text-lg font-bold text-green-700 mb-4">{product.price}</p>
-            <button className="bg-green-700 text-white px-4 py-2 rounded-lg hover:bg-green-800 transition-all">
-              Order Now
+            <p className="text-lg font-bold text-green-700 mb-4">₵{product.price}</p>
+            <button
+              onClick={() => addToCart(product)}
+              className="bg-green-700 text-white px-4 py-2 rounded-lg hover:bg-green-800 transition-all w-full"
+            >
+              Add to Cart
             </button>
           </motion.div>
         ))}
       </motion.div>
+
+      {/* Cart & Checkout */}
+      {cart.length > 0 && (
+        <div className="mt-16 bg-green-50 p-6 rounded-xl shadow-md">
+          <h2 className="text-2xl font-bold text-green-800 mb-4">Your Cart</h2>
+          <ul className="mb-6 space-y-2">
+            {cart.map((item, index) => (
+              <li key={index} className="flex justify-between text-green-700">
+                <span>{item.title}</span>
+                <span>₵{item.price}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="text-lg font-semibold mb-4">
+            Total: ₵{cart.reduce((sum, item) => sum + item.price, 0)}
+          </p>
+          <button
+            onClick={handleCheckout}
+            className="bg-green-700 text-white px-6 py-3 rounded-lg hover:bg-green-800 w-full"
+          >
+            Checkout with Paystack
+          </button>
+        </div>
+      )}
     </div>
   );
-}
+};
 
 export default Products;
