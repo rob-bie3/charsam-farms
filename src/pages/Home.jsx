@@ -92,20 +92,20 @@ const Home = () => {
           </motion.div>
 
           {/* Image Section with Framer Motion Carousel */}
-          <div className="flex-1 mt-10 md:mt-0 relative h-[300px] md:h-[400px] w-full rounded-xl overflow-hidden shadow-lg">
-            <AnimatePresence mode="wait">
-              <motion.img
-                key={currentImageIndex}
-                src={heroImages[currentImageIndex]}
-                alt="Farm Showcase"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 1 }}
-                className="w-full h-full object-cover absolute top-0 left-0"
-              />
-            </AnimatePresence>
-          </div>
+         <div className="flex-1 mt-6 md:mt-0 rounded-xl overflow-hidden shadow-lg min-h-[300px] md:min-h-[400px]">
+  <AnimatePresence mode="wait">
+    <motion.img
+      key={currentImageIndex}
+      src={heroImages[currentImageIndex]}
+      alt="Farm Showcase"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 1 }}
+      className="w-full h-full object-cover"
+    />
+  </AnimatePresence>
+</div>
         </div>
       </section>
 

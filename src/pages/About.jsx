@@ -1,11 +1,32 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { FaLeaf, FaSeedling, FaAward, FaRegSmileBeam } from 'react-icons/fa';
+import workers from '../assets/images/workers.jpg';
 
 const About = () => {
   return (
-    <div className="bg-white text-gray-800 px-6 py-12 md:py-20">
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
+    <div className="bg-white text-gray-800">
+      {/* Hero Section */}
+      <section className="relative h-[300px] md:h-[400px] w-full overflow-hidden mb-12">
+        <img
+          src={workers}
+          alt="About CharsamFarms"
+          className="absolute inset-0 w-full h-screen object-cover brightness-75"
+        />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <motion.h1
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-4xl md:text-5xl font-bold text-white text-center px-4"
+          >
+            About CharsamFarms
+          </motion.h1>
+        </div>
+      </section>
+
+      {/* Intro */}
+      <section className="max-w-6xl mx-auto px-6 py-12 md:py-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -13,9 +34,9 @@ const About = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-green-800 mb-4">About CharsamFarms</h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Empowering communities through sustainable mushroom and snail farming practices in Ghana.
+          <h2 className="text-3xl md:text-4xl font-bold text-green-800 mb-4">Who We Are</h2>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            Kwame Charsam Farms is a registered agribusiness founded in 2018 by Samuel Kwame Yeboah. We specialize in the sustainable farming of mushrooms (oyster mushrooms) and African giant snails. Our passion is to promote eco-friendly agriculture and empower communities.
           </p>
         </motion.div>
 
@@ -27,20 +48,27 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-2xl font-semibold text-green-700 mb-4">Our Mission</h2>
+            <div className="flex items-center mb-4 text-green-700">
+              <FaLeaf className="text-3xl mr-3" />
+              <h3 className="text-2xl font-semibold">Our Mission</h3>
+            </div>
             <p className="text-gray-700 leading-relaxed">
-              To promote food security and environmental sustainability by producing high-quality, eco-friendly mushrooms and snails while providing education and resources to empower smallholder farmers and local communities.
+              To provide high-quality, nutritious, and organically grown mushrooms and snails to local markets while promoting food security and creating employment, especially for youth and women in Kumasi and Sunyani.
             </p>
           </motion.div>
+
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-2xl font-semibold text-green-700 mb-4">Our Vision</h2>
+            <div className="flex items-center mb-4 text-green-700">
+              <FaSeedling className="text-3xl mr-3" />
+              <h3 className="text-2xl font-semibold">Our Vision</h3>
+            </div>
             <p className="text-gray-700 leading-relaxed">
-              To become a leading force in sustainable agro-processing, inspiring a new generation of farmers through innovation, education, and environmental stewardship.
+              To expand production, improve infrastructure, and enhance value addition to meet increasing market demand. To become a leading force in sustainable agro-processing, inspiring a new generation of farmers through innovation, education, and environmental stewardship.
             </p>
           </motion.div>
         </div>
@@ -53,28 +81,33 @@ const About = () => {
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <h2 className="text-2xl font-semibold text-green-700 mb-4">Our Story</h2>
+          <div className="flex items-center mb-4 text-green-700">
+            <FaRegSmileBeam className="text-3xl mr-3" />
+            <h3 className="text-2xl font-semibold">Our Story</h3>
+          </div>
           <p className="text-gray-700 leading-relaxed">
-            CharsamFarms was born out of a passion for nature and a desire to solve the food waste and nutrition challenges in Ghana. Starting with just a few mushroom logs and determination, we’ve grown into a brand trusted for quality, innovation, and sustainability. From training young farmers to exporting premium produce, we are committed to creating long-term impact.
+            Charsam Farms was born out of a passion for nature and a desire to solve the food waste and nutrition challenges in Ghana. Starting with just a few mushroom logs and determination, we’ve grown into a brand trusted for quality, innovation, and sustainability. From training young farmers to supplying local markets, we are committed to creating long-term impact.
           </p>
         </motion.div>
 
-        {/* Certifications & Achievements (optional) */}
+        {/* Certifications & Achievements */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-2xl font-semibold text-green-700 mb-4">Certifications & Achievements</h2>
+          <div className="flex items-center mb-4 text-green-700">
+            <FaAward className="text-3xl mr-3" />
+            <h3 className="text-2xl font-semibold">Certifications & Achievements</h3>
+          </div>
           <ul className="list-disc pl-6 text-gray-700 space-y-2">
-            <li>Ghana FDA Certified (2024)</li>
-            <li>AgriBiz Innovation Grant Winner – Central Region (2023)</li>
-            <li>500+ farmers trained in sustainable mushroom & snail farming</li>
+            <li>Ghana FDA Certified (2020)</li>
+            <li>50+ farmers trained in sustainable mushroom & snail farming</li>
             <li>ISO-compliant organic farming practices under development</li>
           </ul>
         </motion.div>
-      </div>
+      </section>
     </div>
   );
 };
