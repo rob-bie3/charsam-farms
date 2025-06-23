@@ -2,6 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaLeaf, FaSeedling, FaAward, FaRegSmileBeam } from 'react-icons/fa';
 import workers from '../assets/images/workers.jpg';
+import farmer from '../assets/images/farmer.jpg';
+import { FaUserTie } from 'react-icons/fa6';
 
 const About = () => {
   return (
@@ -106,6 +108,63 @@ const About = () => {
             <li>50+ farmers trained in sustainable mushroom & snail farming</li>
             <li>ISO-compliant organic farming practices under development</li>
           </ul>
+        </motion.div>
+         {/* Meet the Team */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="my-16 text-center"
+        >
+          <div className="flex items-center justify-center mb-4 text-green-700">
+            <FaUserTie className="text-3xl mr-3" />
+            <h3 className="text-3xl font-semibold">Meet the Team</h3>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-8">
+            {/* Founder */}
+            <div className="bg-green-50 rounded-lg p-6 shadow text-center">
+              <img
+                src={farmer}
+                alt="Samuel Kwame Yeboah"
+                className="w-32 h-32 mx-auto rounded-full mb-4 object-cover"
+              />
+              <h4 className="text-xl font-bold text-green-800 mb-1">Samuel Kwame Yeboah</h4>
+              <p className="text-green-600 mb-2">Founder & CEO</p>
+              <p className="text-gray-700 text-sm">
+                An agro-entrepreneur passionate about sustainable agriculture and community development.
+              </p>
+            </div>
+
+            {/* Team Member 1 */}
+            <div className="bg-green-50 rounded-lg p-6 shadow text-center">
+              <img
+                src={workers}
+                alt="Team Member 1"
+                className="w-32 h-32 mx-auto rounded-full mb-4 object-cover"
+              />
+              <h4 className="text-xl font-bold text-green-800 mb-1">Akosua Mensah</h4>
+              <p className="text-green-600 mb-2">Farm Operations Manager</p>
+              <p className="text-gray-700 text-sm">
+                Expert in quality control, mushroom production, and farmer training.
+              </p>
+            </div>
+
+            {/* Team Member 2 */}
+            <div className="bg-green-50 rounded-lg p-6 shadow text-center">
+              <img
+                src={workers}
+                alt="Team Member 2"
+                className="w-32 h-32 mx-auto rounded-full mb-4 object-cover"
+              />
+              <h4 className="text-xl font-bold text-green-800 mb-1">Kwame Boateng</h4>
+              <p className="text-green-600 mb-2">Marketing & Sales Lead</p>
+              <p className="text-gray-700 text-sm">
+                Driving local market connections and educating customers about our products.
+              </p>
+            </div>
+          </div>
         </motion.div>
       </section>
     </div>

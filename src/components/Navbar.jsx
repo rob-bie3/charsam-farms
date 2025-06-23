@@ -33,7 +33,7 @@ const Navbar = () => {
         <div className="hidden md:flex space-x-6 text-sm font-medium">
           <Link to="/" className={navLinkStyle('/')}>Home</Link>
           <Link to="/about" className={navLinkStyle('/about')}>About</Link>
-          <Link to="/products" className={navLinkStyle('/products')}>Products</Link>
+          <Link to="/products" className={navLinkStyle('/products')}>Products Shop</Link>
           <Link to="/services" className={navLinkStyle('/services')}>Services</Link>
           <Link to="/contact" className={navLinkStyle('/contact')}>Contact</Link>
         </div>

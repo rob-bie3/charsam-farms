@@ -2,6 +2,7 @@ import React from 'react';
 import { FaFacebookF, FaInstagram, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 import { FaLocationDot } from 'react-icons/fa6';
 import img3 from '../assets/images/img3.jpg';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -20,13 +21,43 @@ const Footer = () => {
         </div>
 
         {/* Quick Links */}
-        <div>
+        <div className='pl-24'>
           <h4 className="text-xl font-semibold mb-4">Quick Links</h4>
           <ul className="space-y-3 text-base">
-            <li><a href="#shop" className="hover:underline hover:text-yellow-300 transition">Shop</a></li>
-            <li><a href="#about" className="hover:underline hover:text-yellow-300 transition">About Us</a></li>
-            <li><a href="#contact" className="hover:underline hover:text-yellow-300 transition">Contact</a></li>
-            <li><a href="#training" className="hover:underline hover:text-yellow-300 transition">Services</a></li>
+          
+  <li>
+    <Link
+      to="/products" 
+      className="hover:underline hover:text-yellow-300 transition"
+    >
+      Shop
+    </Link>
+  </li>
+  <li>
+    <Link 
+      to="/about" 
+      className="hover:underline hover:text-yellow-300 transition"
+    >
+      About Us
+    </Link>
+  </li>
+  <li>
+    <Link 
+      to="/contact" 
+      className="hover:underline hover:text-yellow-300 transition"
+    >
+      Contact
+    </Link>
+  </li>
+  <li>
+    <Link 
+      to="/services" 
+      className="hover:underline hover:text-yellow-300 transition"
+    >
+      Services
+    </Link>
+  </li>
+
           </ul>
         </div>
 
