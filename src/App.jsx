@@ -6,8 +6,15 @@ import Services from './pages/Services';
 import Contact from './pages/Contact';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import BookTraining from './components/BookTraining';
+import Gallery from './pages/Gallery';
+import Checkout from './pages/Checkout';
+import { useState } from 'react';
 
 function App() {
+
+const [cart, setCart] = useState([]);
+
   return (
     <div className="font-sans text-gray-800">
       <Navbar />
@@ -16,11 +23,18 @@ function App() {
 
         <Route path="/about" element={<About />} />
 
-        <Route path="/products" element={<Products />} />
+        <Route path="/products" element={<Products cart={cart} setCart={setCart} />} />
 
         <Route path="/services" element={<Services />} />
 
         <Route path="/contact" element={<Contact />} />
+
+        <Route path="/booktraining" element={<BookTraining />} />
+
+        <Route path="/gallery" element={<Gallery />} />
+
+        <Route path="/checkout" element={<Checkout cart={cart} setCart={setCart} />} />
+
         
       </Routes>
       <Footer />

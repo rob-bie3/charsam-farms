@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaLeaf, FaSeedling, FaAward, FaRegSmileBeam } from 'react-icons/fa';
 import workers from '../assets/images/workers.jpg';
-import farmer from '../assets/images/farmer.jpg';
+import founder1 from '../assets/images/founder1.jpg';
 import { FaUserTie } from 'react-icons/fa6';
 
 const About = () => {
@@ -126,7 +126,7 @@ const About = () => {
             {/* Founder */}
             <div className="bg-green-50 rounded-lg p-6 shadow text-center">
               <img
-                src={farmer}
+                src={founder1}
                 alt="Samuel Kwame Yeboah"
                 className="w-32 h-32 mx-auto rounded-full mb-4 object-cover"
               />
@@ -144,8 +144,8 @@ const About = () => {
                 alt="Team Member 1"
                 className="w-32 h-32 mx-auto rounded-full mb-4 object-cover"
               />
-              <h4 className="text-xl font-bold text-green-800 mb-1">Akosua Mensah</h4>
-              <p className="text-green-600 mb-2">Farm Operations Manager</p>
+              <h4 className="text-xl font-bold text-green-800 mb-1">Charity Yeboah</h4>
+              <p className="text-green-600 mb-2">Assistant</p>
               <p className="text-gray-700 text-sm">
                 Expert in quality control, mushroom production, and farmer training.
               </p>
