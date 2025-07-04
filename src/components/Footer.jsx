@@ -21,42 +21,42 @@ const Footer = () => {
         </div>
 
         {/* Quick Links */}
-        <div className='pl-24'>
+        <div className=''>
           <h4 className="text-xl font-semibold mb-4">Quick Links</h4>
           <ul className="space-y-3 text-base">
-          
-  <li>
-    <Link
-      to="/products" 
-      className="hover:underline hover:text-yellow-300 transition"
-    >
-      Shop
-    </Link>
-  </li>
-  <li>
-    <Link 
-      to="/about" 
-      className="hover:underline hover:text-yellow-300 transition"
-    >
-      About Us
-    </Link>
-  </li>
-  <li>
-    <Link 
-      to="/contact" 
-      className="hover:underline hover:text-yellow-300 transition"
-    >
-      Contact
-    </Link>
-  </li>
-  <li>
-    <Link 
-      to="/services" 
-      className="hover:underline hover:text-yellow-300 transition"
-    >
-      Services
-    </Link>
-  </li>
+
+            <li>
+              <Link
+                to="/products"
+                className="hover:underline hover:text-yellow-300 transition"
+              >
+                Shop
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/about"
+                className="hover:underline hover:text-yellow-300 transition"
+              >
+                About Us
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/contact"
+                className="hover:underline hover:text-yellow-300 transition"
+              >
+                Contact
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/services"
+                className="hover:underline hover:text-yellow-300 transition"
+              >
+                Services
+              </Link>
+            </li>
 
           </ul>
         </div>
@@ -82,10 +82,10 @@ const Footer = () => {
       <div className="mt-12 border-t border-green-700 pt-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-300">
         <p>&copy; {new Date().getFullYear()} <span className="text-white font-semibold">CharsamFarms</span>. All rights reserved.</p>
         <div className="flex space-x-5 mt-4 md:mt-0">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-300 transition">
+          <a href="https://www.facebook.com/share/1ZSYfjXphR/" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-300 transition">
             <FaFacebookF size={18} />
           </a>
-          <a href="https://www.instagram.com/charsam_farms/" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-300 transition">
+          <a href="https://www.instagram.com/p/DIYq901ICk0/?igsh=cmFjbzI3Z2kyNHJr" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-300 transition">
             <FaInstagram size={18} />
           </a>
         </div>

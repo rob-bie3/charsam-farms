@@ -4,6 +4,8 @@ import { FaLeaf, FaSeedling, FaAward, FaRegSmileBeam } from 'react-icons/fa';
 import workers from '../assets/images/workers.jpg';
 import founder1 from '../assets/images/founder1.jpg';
 import { FaUserTie } from 'react-icons/fa6';
+import ac from '../assets/images/ac.jpg'
+import ag from '../assets/images/ag.jpg'
 
 const About = () => {
   return (
@@ -140,12 +142,12 @@ const About = () => {
             {/* Team Member 1 */}
             <div className="bg-green-50 rounded-lg p-6 shadow text-center">
               <img
-                src={workers}
+                src={ag}
                 alt="Team Member 1"
                 className="w-32 h-32 mx-auto rounded-full mb-4 object-cover"
               />
-              <h4 className="text-xl font-bold text-green-800 mb-1">Charity Yeboah</h4>
-              <p className="text-green-600 mb-2">Assistant</p>
+              <h4 className="text-xl font-bold text-green-800 mb-1">Madam Twenewaa Charity</h4>
+              <p className="text-green-600 mb-2">Assistant general</p>
               <p className="text-gray-700 text-sm">
                 Expert in quality control, mushroom production, and farmer training.
               </p>
@@ -154,12 +156,12 @@ const About = () => {
             {/* Team Member 2 */}
             <div className="bg-green-50 rounded-lg p-6 shadow text-center">
               <img
-                src={workers}
+                src={ac}
                 alt="Team Member 2"
                 className="w-32 h-32 mx-auto rounded-full mb-4 object-cover"
               />
-              <h4 className="text-xl font-bold text-green-800 mb-1">Kwame Boateng</h4>
-              <p className="text-green-600 mb-2">Marketing & Sales Lead</p>
+              <h4 className="text-xl font-bold text-green-800 mb-1">Mr Agyenim Beaten</h4>
+              <p className="text-green-600 mb-2">Marketing & Sales Officer</p>
               <p className="text-gray-700 text-sm">
                 Driving local market connections and educating customers about our products.
               </p>
