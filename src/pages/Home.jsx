@@ -1,6 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import ProductCard from '../components/ProductCard';
-import teamImage from '../assets/images/img3.jpg';
 import mush1 from '../assets/images/mush1.jpg';
 import mush2 from '../assets/images/mush2.jpg';
 import snail1 from '../assets/images/snail1.jpg';
@@ -93,7 +92,6 @@ const Home = () => {
             </div>
           </motion.div>
 
-          {/* Image Section with Framer Motion Carousel */}
           <div className="flex-1 mt-6 md:mt-0 rounded-xl overflow-hidden shadow-lg min-h-[300px] md:min-h-[400px]">
             <AnimatePresence mode="wait">
               <motion.img
@@ -121,12 +119,12 @@ const Home = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="flex-shrink-0 w-full md:w-1/2"
+            className="flex-shrink-0 w-full md:w-1/2 max-w-md"
           >
             <img
               src={founder}
               alt="Founder"
-              className="rounded-xl object-cover w-full h-screen shadow-lg"
+              className="rounded-xl object-cover w-full h-auto  cursor-pointer shadow-lg"
             />
           </motion.div>
 

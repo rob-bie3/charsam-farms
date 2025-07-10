@@ -8,8 +8,8 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import BookTraining from './components/BookTraining';
 import Gallery from './pages/Gallery';
-import Checkout from './pages/Checkout';
 import { useState } from 'react';
+import MyCart from './pages/MyCart';
 
 function App() {
 
@@ -17,7 +17,7 @@ const [cart, setCart] = useState([]);
 
   return (
     <div className="font-sans text-gray-800">
-      <Navbar />
+      <Navbar cart={cart}/>
       <Routes>
         <Route path="/" element={<Home />} />
 
@@ -33,7 +33,7 @@ const [cart, setCart] = useState([]);
 
         <Route path="/gallery" element={<Gallery />} />
 
-        <Route path="/checkout" element={<Checkout cart={cart} setCart={setCart} />} />
+        <Route path="/mycart" element={<MyCart cart={cart} setCart={setCart} />} />
 
         
       </Routes>

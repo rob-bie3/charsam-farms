@@ -133,7 +133,7 @@ const Products = ({cart, setCart }) => {
   return (
     <div className="container mx-auto px-6 py-16">
       <h1 className="text-4xl font-bold text-center text-green-800 mb-10">
-        Shop Our Products
+        Our Products
       </h1>
 
       {/* Category Filters */}

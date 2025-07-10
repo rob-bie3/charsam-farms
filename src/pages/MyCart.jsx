@@ -2,7 +2,7 @@
 import React from 'react';
 import PaystackPop from '@paystack/inline-js';
 
-const Checkout = ({ cart, setCart }) => {
+const MyCart = ({ cart, setCart }) => {
   const updateQuantity = (productId, newQty) => {
     setCart((prevCart) =>
       prevCart.map((item) =>
@@ -41,7 +41,7 @@ const Checkout = ({ cart, setCart }) => {
 
   return (
     <div className="container mx-auto px-6 py-16">
-      <h1 className="text-4xl font-bold text-center text-green-800 mb-10">Checkout</h1>
+      <h1 className="text-4xl font-bold text-center text-green-800 mb-10">My Cart</h1>
 
       {cart.length === 0 ? (
         <p className="text-center text-gray-600">Your cart is empty.</p>
@@ -117,4 +117,4 @@ const Checkout = ({ cart, setCart }) => {
   );
 };
 
-export default Checkout;
+export default MyCart;
