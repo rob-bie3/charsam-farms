@@ -35,6 +35,13 @@ const MyCart = ({ cart, setCart }) => {
     }
 
     const paystack = new PaystackPop();
+
+    const productDetails = cart.map((item) => ({
+      product: item.title,
+      quantity: item.quantity,
+      amount: item.price * item.quantity,
+    }));
+
     paystack.newTransaction({
       key: 'pk_test_83204864bb4a60c9af0ed1616a2403ecaea75280', // Replace with your actual Paystack public key
       amount: totalAmount * 100,
@@ -52,6 +59,11 @@ const MyCart = ({ cart, setCart }) => {
             variable_name: 'phone',
             value: customerInfo.phone,
           },
+          {
+          display_name: "Cart Details",
+          variable_name: "cart_details",
+          value: JSON.stringify(productDetails), // store as JSON string
+        },
         ],
       },
       onSuccess: (transaction) => {
