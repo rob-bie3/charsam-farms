@@ -6,7 +6,7 @@ import snail1 from '../assets/images/snail1.jpg';
 import { useEffect, useState } from 'react';
 import img2 from '../assets/images/img2.jpg';
 import mush6 from '../assets/images/mush6.jpg';
-import founder from '../assets/images/founder.jpg';
+import founder4 from '../assets/images/founder4.jpg';
 import mushvid from '../assets/videos/mushvid.mp4';
 import { Link } from 'react-router-dom';
 import { FaLeaf, FaTruck, FaChalkboardTeacher } from 'react-icons/fa';
@@ -122,7 +122,7 @@ const Home = () => {
             className="flex-shrink-0 w-full md:w-1/2 max-w-md"
           >
             <img
-              src={founder}
+              src={founder4}
               alt="Founder"
               className="rounded-xl object-cover w-full h-auto  cursor-pointer shadow-lg"
             />

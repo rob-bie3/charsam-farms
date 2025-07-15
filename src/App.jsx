@@ -10,6 +10,7 @@ import BookTraining from './components/BookTraining';
 import Gallery from './pages/Gallery';
 import { useState } from 'react';
 import MyCart from './pages/MyCart';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
 
@@ -38,6 +39,8 @@ const [cart, setCart] = useState([]);
         
       </Routes>
       <Footer />
+
+      <ToastContainer position='top-right' autoClose={5000} />
     </div>
   );
 }
